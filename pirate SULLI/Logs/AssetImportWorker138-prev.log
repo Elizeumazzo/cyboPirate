@@ -1,0 +1,44 @@
+Using pre-set license
+Built from '2021.1/staging' branch; Version is '2021.1.18f1 (25bdc3efbc2d) revision 2473411'; Using compiler version '192528614'; Build Type 'Release'
+OS: 'Windows 10 Education; OS build 19042.1237; Version 2009; 64bit' Language: 'en' Physical Memory: 8037 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\2021.1.18f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker138
+-projectPath
+H:/Documents/GitHub/cyboPirate/pirate SULLI
+-logFile
+Logs/AssetImportWorker138.log
+-srvPort
+58080
+Successfully changed project path to: H:/Documents/GitHub/cyboPirate/pirate SULLI
+H:/Documents/GitHub/cyboPirate/pirate SULLI
+Using Asset Import Pipeline V2.
+Assertion failed on expression: 'm_ErrorCode == MDB_MAP_RESIZED || !HasAbortingErrors()'
+received signal from system: SIGSEGV
+Stack trace:
+0x00007ff60d5479ac (Unity) StackWalker::GetCurrentCallstack
+0x00007ff60d54da59 (Unity) StackWalker::ShowCallstack
+0x00007ff60dd45963 (Unity) GetStacktrace
+0x00007ff60d547090 (Unity) winutils::CrashHandler::DefaultSignalHandler
+0x00007ff60f90bc1e (Unity) seh_filter_exe
+0x00007ff60f9d4a6d (Unity) `__scrt_common_main_seh'::`1'::filt$0
+0x00007ff60f8d8af8 (Unity) _C_specific_handler
+0x00007ffa03dd20cf (ntdll) _chkstk
+0x00007ffa03d81454 (ntdll) RtlRaiseException
+0x00007ffa03dd0bfe (ntdll) KiUserExceptionDispatcher
+0x00007ff60de706cb (Unity) SourceAssetDBReadTxn::SourceAssetDBReadTxn
+0x00007ff60de3e966 (Unity) SyncAssetFoldersWithDB
+0x00007ff60de2db6d (Unity) InitializeAssetDatabaseV2
+0x00007ff60ddcb895 (Unity) AssetDatabase::InitializeAssetDatabase
+0x00007ff60d93c190 (Unity) Application::InitializeProject
+0x00007ff60dd4f007 (Unity) WinMain
+0x00007ff60f8b6332 (Unity) __scrt_common_main_seh
+0x00007ffa02037034 (KERNEL32) BaseThreadInitThunk
+0x00007ffa03d82651 (ntdll) RtlUserThreadStart
+

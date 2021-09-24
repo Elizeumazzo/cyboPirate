@@ -36,8 +36,10 @@ public class playerscript1 : MonoBehaviour
 
         DoJump();
         DoMove();
+        //DoMoveTest();
+
     }
-    
+
     private void FixedUpdate()
     {
         Vector2 velocity = rb.velocity;
@@ -64,20 +66,32 @@ public class playerscript1 : MonoBehaviour
         isGrounded = false;
     }
 
+
+
+    /*void DoMoveTest()
+    {
+
+        if (Input.GetKey("a"))
+        {
+            if (Input.GetKey("x"))
+            {
+                rb.AddForce(new Vector2(-200, 0), ForceMode2D.Impulse);
+
+            }
+            else
+            {
+                //rb.AddForce(new Vector2(-100, 0), ForceMode2D.Impulse);
+                rb.AddForce( new Vector2(-10,0), ForceMode2D.Impulse);
+                print("force");
+            }
+        }
+              
+            
+    }*/
+
     void DoJump()
     {
-        //anim.SetBool("falling", false);
-        anim.SetBool("rising", false);
-        if (Input.GetAxis("Vertical") < 0.1)
-        {
-           // anim.SetBool("falling", true);
-            anim.SetBool("rising",false);
-        }
-        if (Input.GetAxis("Vertical") > 0.1)
-        {
-            //anim.SetBool("falling", false);
-            anim.SetBool("rising", true);
-        }
+
 
         Vector2 velocity = rb.velocity;
 
@@ -95,8 +109,27 @@ public class playerscript1 : MonoBehaviour
 
     }
 
+
+
+    /*void DofaceLeft(bool faceleft)
+    {
+        if( faceleft == true)
+        {
+            transform.localRotation = Quaternion.Euler(0, 180, 0);
+        }
+        else
+        {
+            transform.localRotation = Quaternion.Euler(0, 0, 0);
+        }
+    }*/
+
+
+
+
+
     void DoMove()
     {
+        
         anim.SetFloat("speed", 0);
         if (Input.GetKey("a") || Input.GetKey("left") || Input.GetKey("d") || Input.GetKey("right"))
         {
@@ -107,24 +140,63 @@ public class playerscript1 : MonoBehaviour
 
         // stop player sliding when not pressing left or right
         velocity.x = 0;
+        anim.SetBool("Sliding", false);
 
         // check for moving left
         if (Input.GetKey("a") || Input.GetKey("left"))
         {
-            velocity.x = -5f;
+            if (Input.GetKey("z"))
+            {
+                anim.SetFloat("speed", 3);
+                anim.SetBool("Sliding", true);
+                velocity.x = -15f;
+            }
+            else
+            {
+                velocity.x = -5f;
+            }
+
         }
 
         // check for moving right
         if (Input.GetKey("d") || Input.GetKey("right"))
         {
-            rb.AddForce(new Vector2(100, 0), ForceMode2D.Impulse);
-            velocity.x = 5f;
+            if (Input.GetKey("x"))
+            {
+                anim.SetFloat("speed", 3);
+                anim.SetBool("Sliding", true);
+                velocity.x = 15;
+            }
+            else
+            {
+                velocity.x = 5;
+            }
         }
         rb.velocity = velocity;
+
+
+        anim.SetBool("falling", false);
+        anim.SetBool("rising", false);
+        if (velocity.y > 0.1)
+        {
+            anim.SetBool("falling", false);
+            anim.SetBool("rising", true);
+        }
+        if (velocity.y < 0.1)
+        {
+            anim.SetBool("falling", true);
+            anim.SetBool("rising", false);
+        }
+
 
     }
 
         
+
+
+
+
+
 
 }
 
